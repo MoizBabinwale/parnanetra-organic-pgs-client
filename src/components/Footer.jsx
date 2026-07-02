@@ -138,7 +138,7 @@ export default function Footer() {
               <FaFacebookF />
             </a>
 
-            <a href="#" className="bg-white text-blue-700 p-3 rounded-full hover:scale-110 duration-300">
+            <a href="https://www.facebook.com/parnanetra" className="bg-white text-blue-700 p-3 rounded-full hover:scale-110 duration-300">
               <FaLinkedinIn />
             </a>
           </div>

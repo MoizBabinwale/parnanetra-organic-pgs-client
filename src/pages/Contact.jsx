@@ -80,7 +80,7 @@ export default function Contact() {
                   <FaFacebookF />
                 </a>
 
-                <a href="#" className="bg-blue-800 text-white p-4 rounded-full hover:scale-110 duration-300">
+                <a href="https://www.facebook.com/parnanetra" className="bg-blue-800 text-white p-4 rounded-full hover:scale-110 duration-300">
                   <FaLinkedinIn />
                 </a>
               </div>
