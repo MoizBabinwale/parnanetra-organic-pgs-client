@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { FaUsers, FaCheckCircle, FaTimesCircle, FaClock, FaEye, FaTrash, FaSearch, FaFilter } from "react-icons/fa";
 import axios from "axios";
 
@@ -15,6 +15,7 @@ export default function AvedanPatraAdmin() {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, filter]);
 
   const fetchData = async () => {
@@ -60,19 +61,27 @@ export default function AvedanPatraAdmin() {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case "approved": return "bg-green-100 text-green-800";
-      case "rejected": return "bg-red-100 text-red-800";
-      case "under_review": return "bg-yellow-100 text-yellow-800";
-      default: return "bg-gray-100 text-gray-800";
+      case "approved":
+        return "bg-green-100 text-green-800";
+      case "rejected":
+        return "bg-red-100 text-red-800";
+      case "under_review":
+        return "bg-yellow-100 text-yellow-800";
+      default:
+        return "bg-gray-100 text-gray-800";
     }
   };
 
   const getStatusIcon = (status) => {
     switch (status) {
-      case "approved": return <FaCheckCircle className="text-green-600" />;
-      case "rejected": return <FaTimesCircle className="text-red-600" />;
-      case "under_review": return <FaClock className="text-yellow-600" />;
-      default: return <FaClock className="text-gray-600" />;
+      case "approved":
+        return <FaCheckCircle className="text-green-600" />;
+      case "rejected":
+        return <FaTimesCircle className="text-red-600" />;
+      case "under_review":
+        return <FaClock className="text-yellow-600" />;
+      default:
+        return <FaClock className="text-gray-600" />;
     }
   };
 
@@ -116,11 +125,7 @@ export default function AvedanPatraAdmin() {
           </div>
           <div className="flex items-center gap-2">
             <FaFilter className="text-gray-500" />
-            <select
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-green-500 bg-white"
-            >
+            <select value={filter} onChange={(e) => setFilter(e.target.value)} className="px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-green-500 bg-white">
               <option value="all">सभी (All)</option>
               <option value="pending">लंबित (Pending)</option>
               <option value="under_review">समीक्षा में (Under Review)</option>
@@ -166,23 +171,13 @@ export default function AvedanPatraAdmin() {
                           {app.status === "rejected" && "अस्वीकृत"}
                         </span>
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-600">
-                        {new Date(app.createdAt).toLocaleDateString("hi-IN")}
-                      </td>
+                      <td className="px-4 py-3 text-sm text-gray-600">{new Date(app.createdAt).toLocaleDateString("hi-IN")}</td>
                       <td className="px-4 py-3">
                         <div className="flex gap-2">
-                          <button
-                            onClick={() => setSelectedApp(app)}
-                            className="p-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition"
-                            title="View"
-                          >
+                          <button onClick={() => setSelectedApp(app)} className="p-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition" title="View">
                             <FaEye />
                           </button>
-                          <button
-                            onClick={() => deleteApp(app._id)}
-                            className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition"
-                            title="Delete"
-                          >
+                          <button onClick={() => deleteApp(app._id)} className="p-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition" title="Delete">
                             <FaTrash />
                           </button>
                         </div>
@@ -202,26 +197,50 @@ export default function AvedanPatraAdmin() {
           <div className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b flex justify-between items-center">
               <h2 className="text-xl font-bold text-green-800">आवेदन विवरण (Application Details)</h2>
-              <button onClick={() => setSelectedApp(null)} className="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+              <button onClick={() => setSelectedApp(null)} className="text-gray-500 hover:text-gray-700 text-2xl">
+                &times;
+              </button>
             </div>
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-2 gap-4">
-                <div><span className="text-gray-500 text-sm">किसान का नाम:</span> <span className="font-medium">{selectedApp.farmerName}</span></div>
-                <div><span className="text-gray-500 text-sm">पिता/पति का नाम:</span> <span className="font-medium">{selectedApp.fatherName}</span></div>
-                <div><span className="text-gray-500 text-sm">गांव:</span> <span className="font-medium">{selectedApp.village}</span></div>
-                <div><span className="text-gray-500 text-sm">जिला:</span> <span className="font-medium">{selectedApp.district}</span></div>
-                <div><span className="text-gray-500 text-sm">मोबाइल:</span> <span className="font-medium">{selectedApp.mobile}</span></div>
-                <div><span className="text-gray-500 text-sm">ईमेल:</span> <span className="font-medium">{selectedApp.email || "N/A"}</span></div>
-                <div><span className="text-gray-500 text-sm">कुल भूमि:</span> <span className="font-medium">{selectedApp.totalLandArea} हेक्टेयर</span></div>
-                <div><span className="text-gray-500 text-sm">जैविक भूमि:</span> <span className="font-medium">{selectedApp.organicLandArea} हेक्टेयर</span></div>
+                <div>
+                  <span className="text-gray-500 text-sm">किसान का नाम:</span> <span className="font-medium">{selectedApp.farmerName}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-sm">पिता/पति का नाम:</span> <span className="font-medium">{selectedApp.fatherName}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-sm">गांव:</span> <span className="font-medium">{selectedApp.village}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-sm">जिला:</span> <span className="font-medium">{selectedApp.district}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-sm">मोबाइल:</span> <span className="font-medium">{selectedApp.mobile}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-sm">ईमेल:</span> <span className="font-medium">{selectedApp.email || "N/A"}</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-sm">कुल भूमि:</span> <span className="font-medium">{selectedApp.totalLandArea} हेक्टेयर</span>
+                </div>
+                <div>
+                  <span className="text-gray-500 text-sm">जैविक भूमि:</span> <span className="font-medium">{selectedApp.organicLandArea} हेक्टेयर</span>
+                </div>
               </div>
 
               <div className="border-t pt-4">
                 <h3 className="font-semibold text-green-700 mb-2">स्थिति अपडेट करें (Update Status)</h3>
                 <div className="flex gap-3">
-                  <button onClick={() => updateStatus(selectedApp._id, "under_review")} className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">समीक्षा में</button>
-                  <button onClick={() => updateStatus(selectedApp._id, "approved")} className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">स्वीकृत करें</button>
-                  <button onClick={() => updateStatus(selectedApp._id, "rejected")} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">अस्वीकृत करें</button>
+                  <button onClick={() => updateStatus(selectedApp._id, "under_review")} className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">
+                    समीक्षा में
+                  </button>
+                  <button onClick={() => updateStatus(selectedApp._id, "approved")} className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+                    स्वीकृत करें
+                  </button>
+                  <button onClick={() => updateStatus(selectedApp._id, "rejected")} className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                    अस्वीकृत करें
+                  </button>
                 </div>
               </div>
             </div>

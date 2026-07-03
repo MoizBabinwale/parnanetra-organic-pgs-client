@@ -144,7 +144,7 @@ export default function AvedanPatraForm() {
     setMessage({ type: "", text: "" });
 
     try {
-      const response = await axios.post(`${API_URL}/avedan-patra`, formData);
+      await axios.post(`${API_URL}/avedan-patra`, formData);
       setMessage({ type: "success", text: "आवेदन सफलतापूर्वक जमा किया गया! (Application submitted successfully!)" });
       setTimeout(() => navigate("/registration/farmer-member"), 2000);
     } catch (error) {
