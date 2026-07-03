@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { FaUser, FaEnvelope, FaLock, FaPhone, FaMapMarkerAlt, FaBuilding, FaUsers, FaLeaf, FaShoppingBasket, FaTractor } from "react-icons/fa";
+import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaBuilding, FaUsers, FaLeaf, FaShoppingBasket, FaTractor } from "react-icons/fa";
 
 const categories = [
   { value: "facilitating_agency", label: "सुविधा एजेंसी", eng: "Facilitating Agency", icon: <FaBuilding /> },
@@ -77,10 +77,6 @@ export default function Register() {
     }
   };
 
-  const getCategoryIcon = (cat) => {
-    const found = categories.find((c) => c.value === cat);
-    return found?.icon || <FaUser />;
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center px-4 py-12">
