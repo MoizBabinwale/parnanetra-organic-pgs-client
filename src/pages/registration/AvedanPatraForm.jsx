@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaSave, FaPrint, FaUser, FaUsers, FaMapMarkerAlt, FaPhone, FaEnvelope, FaCalendarAlt, FaSeedling, FaWater, FaTractor, FaCow, FaFileUpload } from "react-icons/fa";
+import { FaSave, FaPrint } from "react-icons/fa";
 import axios from "axios";
 
 const API_URL = "http://localhost:5000/api";
