@@ -10,6 +10,8 @@ import Downloads from "./pages/Downloads";
 
 // Registration Pages
 import FacilitatingAgency from "./pages/registration/FacilitatingAgency";
+import AvedanPatraForm from "./pages/registration/AvedanPatraForm";
+import AvedanPatraAdmin from "./pages/registration/AvedanPatraAdmin";
 
 // Temporary Pages
 // import LocalGroup from "./pages/registration/LocalGroup";
@@ -31,6 +33,8 @@ export default function AllRoutes() {
 
       {/* Registration Pages */}
       <Route path="/registration/facilitating-agency" element={<FacilitatingAgency />} />
+      <Route path="/registration/farmer-member" element={<AvedanPatraForm />} />
+      <Route path="/admin/avedan-patra" element={<AvedanPatraAdmin />} />
 
       {/* Uncomment when pages are created */}
 
