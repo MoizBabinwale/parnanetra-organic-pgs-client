@@ -77,18 +77,18 @@ export function AuthProvider({ children }) {
     return labels[cat] || cat;
   };
 
-  const getCategoryIcon = (cat) => {
-    const icons = {
-      facilitating_agency: "🏢",
-      local_group: "👥",
-      farmer_consumer_group: "🌿",
-      farmer_member: "👨‍🌾",
-      consumer_member: "🛒",
-      admin: "⚙️",
-      user: "👤",
-    };
-    return icons[cat] || "👤";
-  };
+  // const getCategoryIcon = (cat) => {
+  //   const icons = {
+  //     facilitating_agency: "🏢",
+  //     local_group: "👥",
+  //     farmer_consumer_group: "🌿",
+  //     farmer_member: "👨‍🌾",
+  //     consumer_member: "🛒",
+  //     admin: "⚙️",
+  //     user: "👤",
+  //   };
+  //   return icons[cat] || "👤";
+  // };
 
   const isAdmin = () => user?.role === "admin";
   const isLoggedIn = () => !!user;
@@ -101,7 +101,7 @@ export function AuthProvider({ children }) {
     register,
     logout,
     getCategoryLabel,
-    getCategoryIcon,
+    // getCategoryIcon,
     isAdmin,
     isLoggedIn,
     hasCategory,
